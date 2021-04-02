@@ -6,7 +6,6 @@ const useToken = async ({ req, res }) => {
     res.writeHead(307, { Location: '/login' })
     res.end()
   } else if (!access_token) {
-    console.log('de')
     res.writeHead(307, { Location: '/api/auth/refresh' })
     res.end()
   }

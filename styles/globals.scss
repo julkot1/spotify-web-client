@@ -1,7 +1,6 @@
 @import 'variables.scss';
 html,
 body {
-  padding-left: 20px;
   margin: 0;
   background-color: $background;
   color: white;
@@ -16,9 +15,6 @@ body {
 a{
   color: white;
   text-decoration: none;
-  &:hover{
-    color: $green;
-  }
 }
 ul{
   list-style: none;

@@ -1,3 +1,4 @@
+import Layout from '@components/Layout'
 import playlists from '@pages/api/playlist'
 import fetchAPI from '@utils/fetchAPI'
 import useToken from '@utils/useToken'
@@ -8,7 +9,7 @@ const Playlist = ({ playlist, tracks }) => {
   const { desc, name, owner, totalTracks } = playlist
 
   return (
-    <div>
+    <Layout>
       <Head>
         <title>playlist - {name}</title>
       </Head>
@@ -26,17 +27,19 @@ const Playlist = ({ playlist, tracks }) => {
           ))}
         </ul>
       </div>
-    </div>
+    </Layout>
   )
 }
 export const getServerSideProps = async (ctx) => {
   const { token, isTokenProvided } = await useToken(ctx)
-  const id = ctx.req.__NEXT_INIT_QUERY.id
-  return isTokenProvided(async () => {
-    const params = { token: token, id: id }
-    const playlist = await fetchAPI('playlist', params)
-    const tracks = await fetchAPI('playlist/tracks', params)
-    return { props: { playlist: playlist, tracks: tracks } }
-  })
+  const id = ctx.query.id
+  if (!!id) {
+    return isTokenProvided(async () => {
+      const params = { token: token, id: id }
+      const playlist = await fetchAPI('playlist', params)
+      const tracks = await fetchAPI('playlist/tracks', params)
+      return { props: { playlist: playlist, tracks: tracks } }
+    })
+  }
 }
 export default Playlist

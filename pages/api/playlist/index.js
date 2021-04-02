@@ -1,5 +1,5 @@
 import useSpotify, { getItems, defaultPreFunc } from '@utils/useSpotify'
-
+import Cookies from 'js-cookie'
 export default async (req, res) => {
   const query = req.query
   res.json(await getPlaylistInfo(query))

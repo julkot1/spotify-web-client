@@ -4,19 +4,22 @@ import Head from 'next/head'
 import styles from '@styles/Home.module.scss'
 import Playlists from '@components/Playlists'
 import fetchAPI from '@utils/fetchAPI'
-const Page = ({ name, img, playlists }) => {
+import Layout from '@components/Layout'
+const Page = ({ playlists, me }) => {
+  const { display_name, images } = me
+
   return (
-    <>
+    <Layout me={[me]}>
       <Head>
         <title>Home</title>
       </Head>
       <main className={styles.main}>
-        <p>Welcome {name}</p>
-        <img src={img} width="100px" height="100px"></img>
+        <p>Welcome {display_name}</p>
+        <img src={images[0].url} width="100px" height="100px"></img>
 
         {!!playlists && <Playlists playlists={playlists} />}
       </main>
-    </>
+    </Layout>
   )
 }
 
@@ -31,8 +34,7 @@ export const getServerSideProps = async (ctx) => {
     })
     return {
       props: {
-        name: me.display_name,
-        img: me.images[0].url,
+        me: me,
         playlists: playlists,
       },
     }
