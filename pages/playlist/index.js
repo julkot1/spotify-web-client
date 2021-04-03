@@ -5,11 +5,11 @@ import useToken from '@utils/useToken'
 import Head from 'next/head'
 import Link from 'next/link'
 
-const Playlist = ({ playlist, tracks }) => {
+const Playlist = ({ playlist, tracks, me }) => {
   const { desc, name, owner, totalTracks } = playlist
 
   return (
-    <Layout>
+    <Layout me={[me]}>
       <Head>
         <title>playlist - {name}</title>
       </Head>
@@ -38,7 +38,8 @@ export const getServerSideProps = async (ctx) => {
       const params = { token: token, id: id }
       const playlist = await fetchAPI('playlist', params)
       const tracks = await fetchAPI('playlist/tracks', params)
-      return { props: { playlist: playlist, tracks: tracks } }
+      const me = await fetchAPI('me', params)
+      return { props: { playlist: playlist, tracks: tracks, me: me } }
     })
   }
 }
