@@ -26,6 +26,7 @@ const SearchBar = () => {
       <Icon className={styles.search__icon} />
       <div className={styles.search__input__container}>
         <input
+          autoFocus={router.pathname === '/search'}
           className={styles.search__input}
           type="text"
           value={q}

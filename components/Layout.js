@@ -1,5 +1,5 @@
 import styles from '@styles/Layout.module.scss'
-import Navbar from '@components/Navbar'
+import Navbar from '@components/navbar/Navbar'
 const Layout = ({ children, me }) => {
   return (
     <div className={styles.container}>

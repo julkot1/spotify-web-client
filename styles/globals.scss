@@ -17,6 +17,7 @@ a{
   text-decoration: none;
   &:hover{
     color: $green;
+    text-decoration: underline;
   }
 }
 ul{

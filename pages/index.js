@@ -2,7 +2,7 @@ import useToken from '@utils/useToken'
 import React from 'react'
 import Head from 'next/head'
 import styles from '@styles/Home.module.scss'
-import Playlists from '@components/Playlists'
+import Playlists from '@components/home/Playlists'
 import fetchAPI from '@utils/fetchAPI'
 import Layout from '@components/Layout'
 const Page = ({ playlists, me }) => {
@@ -13,12 +13,9 @@ const Page = ({ playlists, me }) => {
       <Head>
         <title>Home</title>
       </Head>
-      <main className={styles.main}>
-        <p>Welcome {display_name}</p>
-        <img src={images[0].url} width="100px" height="100px"></img>
-
+      <div className={styles.main}>
         {!!playlists && <Playlists playlists={playlists} />}
-      </main>
+      </div>
     </Layout>
   )
 }
