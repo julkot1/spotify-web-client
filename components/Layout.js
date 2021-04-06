@@ -1,8 +1,14 @@
 import styles from '@styles/Layout.module.scss'
 import Navbar from '@components/navbar/Navbar'
-const Layout = ({ children, me }) => {
+import Head from 'next/head'
+import Error from 'next/error'
+const Layout = ({ children, me, title }) => {
+  if (me == null) return <Error></Error>
   return (
     <div className={styles.container}>
+      <Head>
+        <title>{title}</title>
+      </Head>
       <Navbar me={me} />
       <main className={styles.main}>{children}</main>
     </div>

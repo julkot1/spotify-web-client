@@ -3,16 +3,31 @@
     width: 100%;
     padding: 0;
     &__title{
-        margin: .25em 0;
+        cursor: pointer;
+        margin: .5em .3em;
         font-weight: 500;
         font-size: 1.25em;
+        &:hover{
+            text-decoration: none;
+            &::after{
+                content: "\2192";
+                font-weight: bolder;
+                font-size: 1em;
+                animation: arrow 200ms linear;
+                position: relative;
+                text-decoration: none;
+            }
+        }
     }
     &__list{
         &__wrapper{
+            margin-top: .5em;
             padding-top: 1em;
             border: 2px solid $green;
             box-shadow: 4px 5px 0 4px rgba(0, 0, 0, 0.4);
             height: 21em;
+            border-radius: 10px;
+            overflow: hidden;
         }
         height: 100%;
         width: 100%;
@@ -22,6 +37,7 @@
         overflow-x: scroll;
         &::-webkit-scrollbar {
             width: 2em;
+            border-radius: 10px;
         }
         &::-webkit-scrollbar-track {
             background-color: $background-2;
@@ -36,7 +52,10 @@
     }
 }
 .tile{
-    background-color: $background-2;
+    background: rgba( 66, 66, 66, 0.75 );
+    backdrop-filter: blur( 11.5px );
+    -webkit-backdrop-filter: blur( 11.5px );
+    border-radius: 10px;
     padding: .3em;
     margin-top: .5em;
     transform: scale(1);
@@ -45,7 +64,7 @@
     justify-content: center;
     &:hover{
         transform: scale(1.05);
-        background-color: rgba( $background-2, .8);
+        background-color: rgba( $background-2, .65);
     }
     &__info{
         &__text, a{
@@ -57,3 +76,14 @@
         }
     }
 }
+@keyframes arrow {
+    0% {
+        opacity: 0;
+        bottom: -1em;
+    }
+    100% {
+        opacity: 1;
+        bottom: 0;
+    }
+
+  }

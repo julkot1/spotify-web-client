@@ -7,7 +7,13 @@ const createSpotify = (token) => {
   return spotify
 }
 
-const get = async (getFunc, spotify) => await getFunc(spotify)
+const get = async (getFunc, spotify) => {
+  try {
+    return await getFunc(spotify)
+  } catch {
+    return null
+  }
+}
 const extractData = async (rawData, dataProcessFunc) =>
   await dataProcessFunc(rawData)
 

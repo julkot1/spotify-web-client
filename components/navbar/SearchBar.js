@@ -11,7 +11,7 @@ const SearchBar = () => {
   const change = ({ target: { value } }) => {
     setShow(true)
     if (value.length)
-      router.push({ pathname: '/search', query: { q: value } }, undefined, {
+      router.replace({ pathname: '/search', query: { q: value } }, undefined, {
         shallow: true,
       })
     else router.push('/')

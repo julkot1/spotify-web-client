@@ -1,6 +1,11 @@
 const fetchAPI = async (url, params) => {
-  const rawData = await fetch(getApiUrl(url, params))
-  return await rawData.json()
+  try {
+    const rawData = await fetch(getApiUrl(url, params))
+    return await rawData.json()
+  } catch (err) {
+    console.log(err)
+    return null
+  }
 }
 const getApiUrl = (url, params) => {
   const urlParams = Object.keys(params)

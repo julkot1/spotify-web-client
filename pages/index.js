@@ -6,8 +6,6 @@ import Playlists from '@components/home/Playlists'
 import fetchAPI from '@utils/fetchAPI'
 import Layout from '@components/Layout'
 const Page = ({ playlists, me }) => {
-  const { display_name, images } = me
-
   return (
     <Layout me={[me]}>
       <Head>

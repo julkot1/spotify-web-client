@@ -5,6 +5,7 @@
     height: 3em;
     position: sticky;
     top: 0;
+    z-index: 1;
     padding: 0px 20px;
     background-color: rgba($green, $alpha: .78);
     backdrop-filter: blur(5px);
@@ -22,6 +23,7 @@
                 background: transparent;
                 z-index: 0;
                 font-weight: bold;
+                text-decoration: none;
                 &::before{
                     content: "";
                     position: absolute;
@@ -33,6 +35,9 @@
                     transform: scaleX(0);
                     transform-origin: 0 0 ;
                     transition: transform 300ms;
+                }
+                &:hover{
+                    text-decoration: none;
                 }
                 &:hover::before{
                     transform: scaleX(1);

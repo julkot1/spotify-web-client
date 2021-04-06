@@ -7,7 +7,7 @@ const Playlists = ({ playlists }) => {
   })
   return (
     <div className={styles.main__playlists}>
-      <TilesGroup tiles={tiles} title="My playlists" />
+      <TilesGroup tiles={tiles} title="My playlists" id="myplaylists" />
     </div>
   )
 }

@@ -5,4 +5,12 @@ module.exports = {
     REDIRECT_URI: 'http://localhost:3000/api/auth/callback',
     API_URL: 'http://localhost:3000/api/',
   },
+  images: {
+    domains: [
+      'i.scdn.co',
+      'mosaic.scdn.co',
+      'lineup-images.scdn.co',
+      'newjams-images.scdn.co',
+    ],
+  },
 }
