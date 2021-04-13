@@ -5,9 +5,11 @@ export default async (req, res) => {
   res.json(await getTracks(query))
 }
 const getTracks = async ({ token, id }) => {
-  const mapTracks = ({ track: { name, album, artists } }) => {
+  const mapTracks = ({ track: { name, album, artists, id, duration_ms } }) => {
     return {
       name,
+      id,
+      duration: duration_ms,
       album: album.name,
       artists: artists.map(({ name }) => name),
     }

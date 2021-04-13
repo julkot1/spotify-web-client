@@ -8,7 +8,7 @@ const FolderItems = ({ id, tiles, title }) => {
 
   return (
     <div className={styles.folder}>
-      <FilterBar setQ={setQ} />
+      <FilterBar setQ={setQ} className={styles['folder__filter-bar']} />
       <ul className={styles.folder__list}>
         {filter(tiles, ['title', 'desc'], Q).map((data) => (
           <li key={data.id} className={styles.folder__list__item}>

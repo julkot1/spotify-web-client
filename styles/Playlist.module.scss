@@ -1,0 +1,179 @@
+@import 'variables.scss';
+.overview{
+    width: 100%;
+    padding: 2em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 800px){flex-direction: column; align-items: center}
+    &__image{
+        width: 100%;
+        height: 100%;
+        &__wrapper{
+            @media (max-width: 800px){width: 300px; padding: 1em; margin-bottom: 2em;}
+            padding: .5em;
+            height: 100%;
+            width: 400px;
+        }
+    }
+
+    &__panel{
+        width: 100%;
+        height: 100%;
+        padding: .5em;
+        margin-left: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @media (max-width: 800px){width: 90%;}
+        &__info{
+            p, a{
+                margin: .2em;
+                word-wrap: normal;
+                max-width: 100%;
+                max-height: 3em;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                word-wrap: break-word;
+            }
+            &__title{
+                margin: 0;
+                margin-bottom: .5em;
+                position: relative;
+                &::before{
+                    content: "";
+                    bottom: -.2em;
+                    position: absolute;
+                    width: 70%;
+                    background-color: white;
+                    height: 2px;
+                }
+            }
+        }
+        &__bottom{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            button{
+                margin: .25rem;
+                border-radius: 15px;
+            }
+            &__right{
+                display: flex;
+                justify-content: space-between;
+            }
+            &__link{
+                margin: 0;
+                display: flex;
+                color: white;
+                align-items: center;
+                justify-content: center;
+                margin-left: .8em;
+                &:hover{
+                    color: white;
+                    text-decoration: none;
+                    transform: scale(1.05);
+                }
+                border: 2px solid white;
+                &--edit,  &--follow{
+                    border-radius: 15px;
+                    min-width: 3.5em;
+                    padding: .2em .3em;
+                }
+                &--more{
+                    width: 2em;
+                    height: 2em;
+                    border-radius: 100%;
+                }
+                &--follow,  &--follow:hover{
+                    color: $green;
+                    border-color: $green;
+                }
+            }
+            &__content{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            &__play{
+                background-color: $green;
+                color: white;
+                font-size: 3.5em;
+                cursor: pointer;
+                transition: transform;
+                &:hover{
+                    transform: scale(1.03);
+                    box-shadow: 0px 0px 20px 1px rgba($green,0.21);
+                }
+            }
+        }
+    }
+}
+.playlist{
+    width: 70%;
+}
+.tracks{
+    padding: 2em;
+    align-items: center;
+    &__filter-bar{
+        &__container{
+            padding: .3em;
+            &:focus-within{
+                background-color: rgba($background, .5);
+            }
+        }
+        background-color: transparent;
+
+        &::placeholder{
+            color: white;
+        }
+        color: white;
+        padding: .2em;
+        font-size: 1.25rem;
+        width: 100%;
+    }
+    &__item{
+        border-bottom: 3px solid $background;
+    }
+    &__legend{
+        position: sticky;
+        z-index: 2;
+        background: rgba( $green, .78 );
+        backdrop-filter: blur( 11.5px );
+        -webkit-backdrop-filter: blur( 11.5px );
+        border-radius: 10px ;
+        top: 2.7em;
+        margin: 0;
+        &--sticky{
+            border-radius: 0 0 10px 10px;
+        }
+        p{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            letter-spacing: .1em;
+        }
+        svg{
+            margin-bottom: -2px;
+        }
+
+    }
+    &__item, &__legend{
+        display: grid;
+        width: 100%;
+        padding: .5em 0;
+        gap: 1em;
+        grid-template-columns: 10px 2fr 1fr 1fr .7fr;
+         p {
+            background-color: transparent;
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+        }
+    }
+
+}

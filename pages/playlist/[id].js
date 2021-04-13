@@ -1,33 +1,21 @@
 import Layout from '@components/Layout'
-import playlists from '@pages/api/playlist'
 import { isNull } from '@utils/errorHandler'
 import fetchAPI from '@utils/fetchAPI'
 import useToken from '@utils/useToken'
-import Head from 'next/head'
 import Link from 'next/link'
+import styles from '@styles/Playlist.module.scss'
 import Error from 'next/error'
+import PlaylistOverview from '@components/playlist/PlaylistOverview'
+import Tracks from '@components/playlist/Tracks'
 const Playlist = ({ playlist, tracks, me, error }) => {
   if (error) return <Error></Error>
   const { desc, name, owner, totalTracks } = playlist
 
   return (
-    <Layout me={[me]}>
-      <Head>
-        <title>playlist - {name}</title>
-      </Head>
-      <Link href="/">back</Link>
-      <p>name: {name}</p>
-      <p>description: {desc}</p>
-      <p>owner: {owner}</p>
-      <p>tracks: {totalTracks}</p>
-      <div>
-        <ul>
-          {tracks.map(({ name, album, artists }) => (
-            <li>{`${name} from ${album} by ${artists.reduce(
-              (acc, cur) => `${acc}, ${cur}`
-            )}`}</li>
-          ))}
-        </ul>
+    <Layout me={[me]} title={`playlist - ${name}`}>
+      <div className={styles.playlist}>
+        <PlaylistOverview playlist={playlist} />
+        <Tracks tracks={tracks} />
       </div>
     </Layout>
   )
@@ -40,6 +28,7 @@ export const getServerSideProps = async (ctx) => {
       const params = { token: token, id: id }
       const playlist = await fetchAPI('playlist', params)
       const tracks = await fetchAPI('playlist/tracks', params)
+
       const me = await fetchAPI('me', params)
       return {
         props: {

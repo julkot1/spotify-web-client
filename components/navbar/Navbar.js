@@ -9,15 +9,14 @@ const Navbar = ({ me }) => {
       <div className={styles.nav__search}>
         <SearchBar />
       </div>
-      <div className={styles.nav__right}>
-        <Link href="/profile">
-          <a className={styles.nav__profile}>{display_name}</a>
-        </Link>
-      </div>
+      <div className={styles.nav__right}></div>
     </div>
   )
 }
 
 export default Navbar
 /*
+<Link href="/profile">
+          <a className={styles.nav__profile}>{display_name}</a>
+        </Link>
  */

@@ -1,9 +1,18 @@
-import { useRouter } from 'next/router'
-const FilterBar = ({ setQ }) => {
-  const router = useRouter()
-
+import styles from '@styles/Components.module.scss'
+import { AiOutlineSearch as Icon } from 'react-icons/ai'
+const FilterBar = ({ setQ, className, container }) => {
   const change = ({ target: { value } }) => setQ(value)
-  return <input type="text" placeholder="filter" onChange={change} />
+  return (
+    <div className={`${styles.filter} ${container}`}>
+      <Icon />
+      <input
+        className={className}
+        type="text"
+        placeholder="filter"
+        onChange={change}
+      />
+    </div>
+  )
 }
 
 export default FilterBar

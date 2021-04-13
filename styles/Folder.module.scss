@@ -1,20 +1,30 @@
+@import 'variables.scss';
 .folder{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    input{
-        width: 200px;
+    &__filter-bar{
+        width: 400px;
+        outline: none;
+        border: none;
+        border-bottom: 2px $green solid;
+        font-size: 1.25rem;
+        color: white;
+        background-color: inherit;
+
     }
     &__list{
         margin: 0;
         padding: 0;
-        display: flex;
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, 240px);
         justify-content: center;
-        flex-wrap: wrap;
         &__item{
             margin: .5em;
+            height: 300px;
         }
     }
 }
