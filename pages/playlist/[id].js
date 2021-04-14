@@ -2,19 +2,22 @@ import Layout from '@components/Layout'
 import { isNull } from '@utils/errorHandler'
 import fetchAPI from '@utils/fetchAPI'
 import useToken from '@utils/useToken'
-import Link from 'next/link'
 import styles from '@styles/Playlist.module.scss'
 import Error from 'next/error'
 import PlaylistOverview from '@components/playlist/PlaylistOverview'
 import Tracks from '@components/playlist/Tracks'
-const Playlist = ({ playlist, tracks, me, error }) => {
-  if (error) return <Error></Error>
-  const { desc, name, owner, totalTracks } = playlist
 
+const Playlist = ({ playlist, tracks, me, error, id }) => {
+  if (error) return <Error></Error>
+  const { name } = playlist
   return (
     <Layout me={[me]} title={`playlist - ${name}`}>
       <div className={styles.playlist}>
-        <PlaylistOverview playlist={playlist} />
+        <PlaylistOverview
+          playlist={playlist}
+          duration_ms={tracks.duration_ms}
+          id={id}
+        />
         <Tracks tracks={tracks} />
       </div>
     </Layout>
@@ -35,6 +38,7 @@ export const getServerSideProps = async (ctx) => {
           playlist: playlist,
           tracks: tracks,
           me: me,
+          id: id,
           error: isNull(params, playlist, tracks, me),
         },
       }

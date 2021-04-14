@@ -8,7 +8,7 @@ const TracksLegend = ({ setSortingFunc, sort }) => {
   useEffect(() => {
     document.addEventListener('scroll', () => {
       if (ref.current != null) {
-        if (ref.current.getBoundingClientRect().top === 54)
+        if (ref.current.getBoundingClientRect().top === 53.59375)
           setLegendClass(
             `${styles.tracks__legend} ${styles['tracks__legend--sticky']}`
           )
@@ -19,7 +19,6 @@ const TracksLegend = ({ setSortingFunc, sort }) => {
 
   return (
     <li ref={ref} key="legend" className={legendClass}>
-      <p></p>
       <p onClick={() => setSortingFunc('name')}>
         title <SortIcon field="name" sort={sort} />
       </p>

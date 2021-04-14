@@ -5,15 +5,20 @@ import styles from '@styles/Home.module.scss'
 import Playlists from '@components/home/Playlists'
 import fetchAPI from '@utils/fetchAPI'
 import Layout from '@components/Layout'
+import styled from 'styled-components'
+const StyledPageMain = styled.div`
+  margin: 2rem;
+`
+
 const Page = ({ playlists, me }) => {
   return (
     <Layout me={[me]}>
       <Head>
         <title>Home</title>
       </Head>
-      <div className={styles.main}>
+      <StyledPageMain>
         {!!playlists && <Playlists playlists={playlists} />}
-      </div>
+      </StyledPageMain>
     </Layout>
   )
 }
