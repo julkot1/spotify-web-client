@@ -1,5 +1,11 @@
 @import 'variables.scss';
-.filter-bar{
+.folder{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &__filter-bar{
         width: 400px;
         outline: none;
         border: none;
@@ -8,4 +14,17 @@
         color: white;
         background-color: inherit;
 
+    }
+    &__list{
+        margin: 0;
+        padding: 0;
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, 240px);
+        justify-content: center;
+        &__item{
+            margin: .5em;
+            height: 300px;
+        }
+    }
 }

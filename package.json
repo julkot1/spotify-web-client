@@ -20,9 +20,7 @@
     "react-reveal": "^1.2.2",
     "react-spring": "^9.0.0",
     "sass": "^1.32.8",
-    "sass-loader": "^11.0.1",
-    "spotify-web-api-node": "^5.0.2",
-    "styled-components": "^5.2.3"
+    "spotify-web-api-node": "^5.0.2"
   },
   "devDependencies": {}
 }

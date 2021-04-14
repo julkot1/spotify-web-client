@@ -1,4 +1,4 @@
-import useSpotify, { getItems, defaultPreFunc } from '@utils/useSpotify'
+import  { getItems, defaultPreFunc } from '@utils/useSpotify'
 
 export default async (req, res) => {
   const query = req.query

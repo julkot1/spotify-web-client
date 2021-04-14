@@ -4,8 +4,8 @@ import Link from 'next/link'
 const PlaylistTrack = ({ data, data: { name, artists, duraiton, album } }) => {
   return (
     <div className={styles.tracks__item}>
-      <p>
-        <img width={48} height={48} src={data.img[2].url}></img>
+      <p className={styles.tracks__item__title}>
+        <img width={48} height={48} src={data.img}></img>
         <Link href="/">{name}</Link>
       </p>
       <p>{artists.reduce((acc, cur) => `${acc}, ${cur}`)}</p>

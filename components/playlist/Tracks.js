@@ -6,7 +6,7 @@ import TracksLegend from './TracksLegend'
 import FilterBar from '@components/tiles/FilterBar'
 import filter from '@utils/filter'
 
-const Tracks = ({ tracks: { items } }) => {
+const Tracks = ({ tracks }) => {
   const [sort, setSortingFunc] = useSort()
   const [Q, setQ] = useState(null)
   const func = sortFunc(sort.field, sort.desc)
@@ -20,7 +20,7 @@ const Tracks = ({ tracks: { items } }) => {
         />
         <TracksLegend setSortingFunc={setSortingFunc} sort={sort} />
         {filter(
-          sort.field != null ? [...items].sort(func) : items,
+          sort.field != null ? [...tracks].sort(func) : tracks,
           ['name', 'artists', 'album'],
           Q
         ).map((d) => (
