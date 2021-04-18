@@ -1,4 +1,4 @@
-import Link from 'next/link'
+
 import TilesGroup from '../tiles/TilesGroup'
 import styles from '@styles/Home.module.scss'
 const Playlists = ({ playlists }) => {

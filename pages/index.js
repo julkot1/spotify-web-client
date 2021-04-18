@@ -5,7 +5,8 @@ import styles from '@styles/Home.module.scss'
 import Playlists from '@components/home/Playlists'
 import fetchAPI from '@utils/fetchAPI'
 import Layout from '@components/Layout'
-const Page = ({ playlists, me }) => {
+import TopArtists from '@components/home/topArtists/TopArtists'
+const Page = ({ playlists, me, topArtists }) => {
   return (
     <Layout me={[me]}>
       <Head>
@@ -13,6 +14,7 @@ const Page = ({ playlists, me }) => {
       </Head>
       <div className={styles.main}>
         {!!playlists && <Playlists playlists={playlists} />}
+        {!!topArtists&&<TopArtists artists={topArtists}/>}
       </div>
     </Layout>
   )
@@ -27,10 +29,12 @@ export const getServerSideProps = async (ctx) => {
       token: token,
       id: me.id,
     })
+    const topArtists = await fetchAPI('me/artists', {token: token})
     return {
       props: {
         me: me,
         playlists: playlists,
+        topArtists: topArtists
       },
     }
   })

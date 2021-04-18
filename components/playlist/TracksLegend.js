@@ -5,17 +5,7 @@ import SortIcon from './SortIcon'
 const TracksLegend = ({ setSortingFunc, sort }) => {
   const ref = useRef(null)
   const [legendClass, setLegendClass] = useState(styles.tracks__legend)
-  useEffect(() => {
-    document.addEventListener('scroll', () => {
-      if (ref.current != null) {
-        if (ref.current.getBoundingClientRect().top === 53.59375)
-          setLegendClass(
-            `${styles.tracks__legend} ${styles['tracks__legend--sticky']}`
-          )
-        else setLegendClass(styles.tracks__legend)
-      }
-    })
-  }, [])
+
 
   return (
     <li ref={ref} key="legend" className={legendClass}>

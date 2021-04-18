@@ -23,7 +23,9 @@ const useSpotify = async (token, getFunc, processFunc) =>
 export default useSpotify
 
 const getOffset = (url) => new URL(url).searchParams.get('offset')
-const getItems = async (token, getFunc, preprocessFunc, processFunc) => {
+
+
+const getItems = async (token, getFunc, preprocessFunc, processFunc, limit) => {
   const spotify = createSpotify(token)
   const reduce = async (total, offset) => {
     const { items, next } = preprocessFunc(await getFunc(spotify, offset))

@@ -7,4 +7,9 @@ $green: #53D63A;
     backdrop-filter: blur( 11.5px );
     -webkit-backdrop-filter: blur( 11.5px );
     border-radius: 10px;
+    margin: 2em 0;
+    &--border{
+      border: 2px solid $green;
+      box-shadow: 4px 5px 0 4px rgba(0, 0, 0, 0.3);
+    }
   }

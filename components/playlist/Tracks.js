@@ -6,12 +6,12 @@ import TracksLegend from './TracksLegend'
 import FilterBar from '@components/tiles/FilterBar'
 import filter from '@utils/filter'
 
-const Tracks = ({ tracks }) => {
+const Tracks = ({ tracks: { items } }) => {
   const [sort, setSortingFunc] = useSort()
   const [Q, setQ] = useState(null)
   const func = sortFunc(sort.field, sort.desc)
   return (
-    <div className={`${styles.box}`}>
+    <div className={`${styles.box} ${styles['box--border']}`}>
       <ul className={styles.tracks}>
         <FilterBar
           setQ={setQ}
@@ -20,7 +20,7 @@ const Tracks = ({ tracks }) => {
         />
         <TracksLegend setSortingFunc={setSortingFunc} sort={sort} />
         {filter(
-          sort.field != null ? [...tracks].sort(func) : tracks,
+          sort.field != null ? [...items].sort(func) : items,
           ['name', 'artists', 'album'],
           Q
         ).map((d) => (

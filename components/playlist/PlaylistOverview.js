@@ -8,11 +8,11 @@ const PlaylistOverview = ({
   playlist: { desc, name, owner, totalTracks, img, isOvner, isFollowing },
 }) => {
   return (
-    <section className={styles.overview}>
-      <div className={`${styles.overview__image__wrapper} ${styles.box}`}>
+    <section className={`${styles.overview} ${styles.box} ${styles['box--border']}`}>
+      <div className={styles.overview__image__wrapper}>
         <img className={styles.overview__image} src={img} />
       </div>
-      <div className={`${styles.overview__panel} ${styles.box}`}>
+      <div className={styles.overview__panel}>
         <div className={styles.overview__panel__info}>
           <h2 className={styles.overview__panel__info__title}>{name}</h2>
           <p>Created by {owner}</p>
